@@ -9,8 +9,55 @@
 </head>
 <body>
     
-    
+    <div class="div">
+        <p>Hello</p>
+    </div>
+    <div class="div">
+        <span>What</span>
+    </div>
+    <div class="div">
+        <span>What</span>
+        <span>What</span>
+        <span>What</span>
+    </div>
+    <div class="div">
+        <span>What</span>
+    </div>
+    <div class="div">
+        <p>Hello</p>
+        <p class="to-remove"></p>
+        <h1 class="to-be-appended">appended as jquery element</h1>
+    </div>
 
+    <div class="appendable">
+    </div>
+
+    <div class="to-remove"></div>
+    <div class="to-remove"></div>
+    <div class="to-remove"></div>
+
+    <div class="add-text-content"></div>
+
+    <h1 class="to-be-appended">appended as jquery element</h1>
+    <h1 class="to-be-appended">appended as jquery element</h1>
+    <div class="to-append">
+
+    </div>
+    <div class="to-append">
+
+    </div>
+
+    <script>
+        $('.div').addClass('woo world it').removeClass('div it');
+
+        $('.appendable').append('<p>I was appended!</p>');
+
+        $('.to-remove').remove();
+
+        $('.add-text-content').text('<p>I was added using text()!</p>');
+
+        $('.to-append').append($('.to-be-appended'));
+    </script>
 
 </body>
 </html>
