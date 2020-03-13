@@ -103,11 +103,11 @@ class JQuerySelectedElements {
     }
 
     children() {
-        const allChildNodes = Array.from(this.elements).flatMap(currentValue => {
-            return Array.from(currentValue.childNodes);
-        }).filter(node => node.nodeType != Node.TEXT_NODE);
+        const allChildren = Array.from(this.elements).flatMap(currentValue => {
+            return Array.from(currentValue.children);
+        });
 
-        return new JQuerySelectedElements(allChildNodes);
+        return new JQuerySelectedElements(allChildren);
     }
 
     empty() {
@@ -184,7 +184,7 @@ class JQuerySelectedElements {
     }
 
     wrap() {
-        
+
     }
 }
 
