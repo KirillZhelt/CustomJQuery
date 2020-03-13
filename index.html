@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery test</title>
 
+    <link rel="stylesheet" type="text/css" href="style.css">
+
     <script src="jquery.js"></script>
+
 </head>
 <body>
     
@@ -47,6 +50,56 @@
 
     </div>
 
+    <input class="input-set-text">
+    <br class="br-set-text">
+
+    <img src="asd.png" class="img-with-src" />
+
+    <input class="add-attrs" name="color"></input>
+
+    <ul class="level-2">
+        <li class="item-a">A</li>
+        <li class="item-b">B
+          <ul class="level-3">
+            <li class="item-1">1</li>
+            <li class="item-2">2</li>
+            <li class="item-3">3</li>
+          </ul>
+        </li>
+        <li class="item-c">C</li>
+    </ul>
+
+    <div class="empty">
+        <p></p>
+        <p>
+            <ul>
+                <li>
+                    what
+                </li>
+                <li>
+                    who
+                </li>
+            </ul>
+        </p>
+    </div>
+
+    <div class="box css-div">
+    </div>
+
+    <div class="box click-div">
+
+    </div>
+
+    <div class="each-div">
+        <p class="each-p">1</p>
+        <p class="each-p">2</p>
+        <p class="each-p">3</p>
+    </div>
+
+    <div class="box toggle-div">
+
+    </div>
+
     <script>
         $('.div').addClass('woo world it').removeClass('div it');
 
@@ -57,6 +110,37 @@
         $('.add-text-content').text('<p>I was added using text()!</p>');
 
         $('.to-append').append($('.to-be-appended'));
+
+        $('.input-set-text').text('text');
+        $('.br-set-text').text('text');
+
+        console.log('img src attribute using attr(): ' + $('.img-with-src').attr('src'));
+
+        $('.add-attrs').attr('type', 'color');
+        $('.add-attrs').attr('name', null);
+
+        $('.level-2').children();
+
+        $('.empty').empty();
+
+        console.log('div css props using css(): ' + $('.css-div').css(['width', 'height']));
+
+        $('.css-div').css({'background-color': 'black'});
+
+        $('.click-div').click(function(e) {
+            $('.click-div').css({'background-color': 'blue'});
+        });
+
+        $('.click-div').click();
+
+        $('.each-p').each(function(index, element) {
+            $(this).css({'color': 'red'});
+        });
+
+        $('.toggle-div').click(function(e) {
+            $(this).toggle();
+        })
+
     </script>
 
 </body>

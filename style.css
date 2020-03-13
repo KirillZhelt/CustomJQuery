@@ -1,0 +1,18 @@
+.box {
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+}
+
+.css-div {
+    background-color: rebeccapurple;
+}
+
+.click-div {
+    margin-top: 20px;
+    background-color: red;
+}
+
+.toggle-div {
+    background-color: green;
+}
