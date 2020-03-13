@@ -4,6 +4,9 @@ class JQuerySelectedElements {
 
     constructor(elements) {
         this.elements = elements;
+        this.initialDisplayValues = this.elements.map(element => {
+            window.getComputedStyle(element).display;
+        });
     }
 
     _applyToElements(action) {
@@ -153,8 +156,42 @@ class JQuerySelectedElements {
             element.click();
         });
     }
+
+    each(callback) {
+        this.elements.forEach((currentValue, currentIndex, _listObj) => {
+            callback.call(currentValue, currentIndex, currentValue);
+        });
+
+        return this;
+    }
+
+    toggle(display) {
+        this.elements.forEach((element, index) => {
+            if (display === true) {
+                element.style.display = this.initialDisplayValues[index];
+            } else if (display === false) {
+                element.style.display = 'none';
+            } else if (display === undefined) {
+                if (window.getComputedStyle(element).display === 'none') {
+                    element.style.display = this.initialDisplayValues[index];
+                } else {
+                    element.style.display = 'none';
+                }
+            }
+        });    
+        
+        return this;
+    }
+
+    wrap() {
+        
+    }
 }
 
 function $(selector) {
-    return new JQuerySelectedElements(Array.from(document.querySelectorAll(selector)));
+    if (typeof selector === 'string') {
+        return new JQuerySelectedElements(Array.from(document.querySelectorAll(selector)));
+    } else {
+        return new JQuerySelectedElements([selector]);
+    }
 }

@@ -83,10 +83,20 @@
         </p>
     </div>
 
-    <div class="css-div">
+    <div class="box css-div">
     </div>
 
-    <div class="click-div">
+    <div class="box click-div">
+
+    </div>
+
+    <div class="each-div">
+        <p class="each-p">1</p>
+        <p class="each-p">2</p>
+        <p class="each-p">3</p>
+    </div>
+
+    <div class="box toggle-div">
 
     </div>
 
@@ -123,7 +133,14 @@
 
         $('.click-div').click();
 
-        
+        $('.each-p').each(function(index, element) {
+            $(this).css({'color': 'red'});
+        });
+
+        $('.toggle-div').click(function(e) {
+            $(this).toggle();
+        })
+
     </script>
 
 </body>
