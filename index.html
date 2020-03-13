@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery test</title>
 
+    <link rel="stylesheet" type="text/css" href="style.css">
+
     <script src="jquery.js"></script>
+
 </head>
 <body>
     
@@ -66,6 +69,27 @@
         <li class="item-c">C</li>
     </ul>
 
+    <div class="empty">
+        <p></p>
+        <p>
+            <ul>
+                <li>
+                    what
+                </li>
+                <li>
+                    who
+                </li>
+            </ul>
+        </p>
+    </div>
+
+    <div class="css-div">
+    </div>
+
+    <div class="click-div">
+
+    </div>
+
     <script>
         $('.div').addClass('woo world it').removeClass('div it');
 
@@ -80,12 +104,26 @@
         $('.input-set-text').text('text');
         $('.br-set-text').text('text');
 
-        console.log($('.img-with-src').attr('src'));
+        console.log('img src attribute using attr(): ' + $('.img-with-src').attr('src'));
 
         $('.add-attrs').attr('type', 'color');
         $('.add-attrs').attr('name', null);
 
         $('.level-2').children();
+
+        $('.empty').empty();
+
+        console.log('div css props using css(): ' + $('.css-div').css(['width', 'height']));
+
+        $('.css-div').css({'background-color': 'black'});
+
+        $('.click-div').click(function(e) {
+            $('.click-div').css({'background-color': 'blue'});
+        });
+
+        $('.click-div').click();
+
+        
     </script>
 
 </body>

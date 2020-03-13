@@ -107,6 +107,52 @@ class JQuerySelectedElements {
         return new JQuerySelectedElements(allChildNodes);
     }
 
+    empty() {
+        this._applyToElements(element => {
+            element.innerHTML = '';
+        });
+
+        return this;
+    }
+
+    css(property) {
+        if (this.elements.length !== 0) {
+            if (typeof property === 'string') {
+                console.log(this.elements[0])
+                return window.getComputedStyle(this.elements[0])[property];
+            } else if (property instanceof Array) {
+                return property.map(propertyName => window.getComputedStyle(this.elements[0])[propertyName]);
+            } else if (property instanceof Object) {
+                return this._setCss(property);
+            }
+        }
+    }
+
+    _setCss(properties) {
+        Object.keys(properties).forEach(property => {
+            this._applyToElements(element => {
+                element.style[property] = properties[property];
+            });
+        });
+
+        return this;
+    }
+
+    click(handler) {
+        if (handler === undefined) {
+            return this._triggerClick();
+        } else {
+            this._applyToElements(element => {
+                element.addEventListener('click', handler);
+            });
+        }
+    }
+
+    _triggerClick() {
+        this._applyToElements(element => {
+            element.click();
+        });
+    }
 }
 
 function $(selector) {

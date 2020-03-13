@@ -1,0 +1,12 @@
+.css-div {
+    width: 200px;
+    height: 200px;
+    background-color: rebeccapurple;
+}
+
+.click-div {
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+    background-color: red;
+}
