@@ -47,6 +47,25 @@
 
     </div>
 
+    <input class="input-set-text">
+    <br class="br-set-text">
+
+    <img src="asd.png" class="img-with-src" />
+
+    <input class="add-attrs" name="color"></input>
+
+    <ul class="level-2">
+        <li class="item-a">A</li>
+        <li class="item-b">B
+          <ul class="level-3">
+            <li class="item-1">1</li>
+            <li class="item-2">2</li>
+            <li class="item-3">3</li>
+          </ul>
+        </li>
+        <li class="item-c">C</li>
+    </ul>
+
     <script>
         $('.div').addClass('woo world it').removeClass('div it');
 
@@ -57,6 +76,16 @@
         $('.add-text-content').text('<p>I was added using text()!</p>');
 
         $('.to-append').append($('.to-be-appended'));
+
+        $('.input-set-text').text('text');
+        $('.br-set-text').text('text');
+
+        console.log($('.img-with-src').attr('src'));
+
+        $('.add-attrs').attr('type', 'color');
+        $('.add-attrs').attr('name', null);
+
+        $('.level-2').children();
     </script>
 
 </body>
