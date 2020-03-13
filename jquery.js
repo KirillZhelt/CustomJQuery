@@ -104,8 +104,6 @@ class JQuerySelectedElements {
             return Array.from(currentValue.childNodes);
         }).filter(node => node.nodeType != Node.TEXT_NODE);
 
-        console.log(allChildNodes)
-
         return new JQuerySelectedElements(allChildNodes);
     }
 
