@@ -183,8 +183,13 @@ class JQuerySelectedElements {
         return this;
     }
 
-    wrap() {
+    wrap(htmlElement) {
+        this._applyToElements(element => {
+            element.parentNode.insertBefore(htmlElement, element);
+            htmlElement.appendChild(element);
+        });
 
+        return this;
     }
 }
 
